@@ -1,6 +1,7 @@
 import { Application } from 'express';
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
-import { createExpressServer } from 'routing-controllers';
+
+import { createExpressServer } from '@mardari/routing-controllers';
 
 import { authorizationChecker } from '../auth/authorizationChecker';
 import { currentUserChecker } from '../auth/currentUserChecker';
@@ -20,7 +21,7 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
             routePrefix: env.app.routePrefix,
             defaultErrorHandler: false,
             /**
-             * We can add options about how routing-controllers should configure itself.
+             * We can add options about how @mardari/routing-controllers should configure itself.
              * Here we specify what controllers should be registered in our express server.
              */
             controllers: env.app.dirs.controllers,

@@ -1,5 +1,8 @@
 import * as express from 'express';
-import { ExpressErrorMiddlewareInterface, HttpError, Middleware } from 'routing-controllers';
+
+import {
+    ExpressErrorMiddlewareInterface, HttpError, Middleware
+} from '@mardari/routing-controllers';
 
 import { Logger, LoggerInterface } from '../../decorators/Logger';
 import { env } from '../../env';

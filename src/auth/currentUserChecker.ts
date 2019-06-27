@@ -1,10 +1,9 @@
-import { Action } from 'routing-controllers';
 import { Connection } from 'typeorm';
 
-import { User } from '../api/models/User';
+import { Action } from '@mardari/routing-controllers';
 
-export function currentUserChecker(connection: Connection): (action: Action) => Promise<User | undefined> {
-    return async function innerCurrentUserChecker(action: Action): Promise<User | undefined> {
+export function currentUserChecker(connection: Connection): (action: Action) => Promise<undefined> {
+    return async function innerCurrentUserChecker(action: Action): Promise<undefined> {
         return action.request.user;
     };
 }

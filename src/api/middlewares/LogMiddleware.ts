@@ -1,6 +1,7 @@
 import * as express from 'express';
 import morgan from 'morgan';
-import { ExpressMiddlewareInterface, Middleware } from 'routing-controllers';
+
+import { ExpressMiddlewareInterface, Middleware } from '@mardari/routing-controllers';
 
 import { env } from '../../env';
 import { Logger } from '../../lib/logger';

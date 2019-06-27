@@ -1,4 +1,4 @@
-import { HttpError } from 'routing-controllers';
+import { HttpError } from '@mardari/routing-controllers';
 
 export class PetNotFoundError extends HttpError {
     constructor() {
