@@ -1,0 +1,5 @@
+export enum SensorType {
+    HUMIDITY = 'HUMIDITY',
+    TEMPERATURE = 'TEMPERATURE',
+    LIGHT_INTENSITY = 'LIGHT_INTENSITY',
+}
