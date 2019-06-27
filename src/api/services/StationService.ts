@@ -27,4 +27,10 @@ export class StationService {
         return this.stationRepository.find();
     }
 
+    public async update(id: string, body: Station): Promise<Station> {
+        body.id = id;
+        await this.stationRepository.save(body);
+        return this.stationRepository.findOne(id);
+    }
+
 }

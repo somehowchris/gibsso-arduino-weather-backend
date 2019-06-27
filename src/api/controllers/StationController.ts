@@ -1,7 +1,7 @@
 // TODO nearest
 // TODO get latest
 
-import { JsonController } from 'routing-controllers';
+import { JsonController, Put } from 'routing-controllers';
 import { OpenAPI, ResponseSchema } from 'routing-controllers-openapi';
 
 import { Authorized, Body, Get, Param } from '@mardari/routing-controllers';
@@ -11,7 +11,7 @@ import { Station } from '../models/Station';
 import { StationService } from '../services/StationService';
 
 @Authorized()
-@JsonController('/station')
+@JsonController('/stations')
 export class StationController {
     constructor(
         private stationService: StationService
@@ -63,5 +63,17 @@ export class StationController {
     })
     public getStationById(@Param('id') id: string): Promise<Station> {
         return this.stationService.findOne(id);
+    }
+
+    @Put('/:id')
+    @ResponseSchema(Measurement, {
+        isArray: false,
+    })
+    @OpenAPI({
+        summary: 'Get a station',
+        description: '',
+    })
+    public updateStation(@Param('id') id: string, @Body() station: Station): Promise<Station> {
+        return this.stationService.update(id, station);
     }
 }

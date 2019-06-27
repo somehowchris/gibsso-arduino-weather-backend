@@ -10,17 +10,14 @@ export class Station {
     @IsString()
     public id: string;
 
-    @Column()
+    @Column({unique: true})
     public name: string;
 
     @Column({nullable: true})
     public description: string;
 
-    @Column({nullable: true})
-    public placeGeoX: string;
-
-    @Column({nullable: true})
-    public placeGeaY: string;
+    @Column({nullable: true, type: 'point', select: false})
+    public location: string;
 
     @OneToMany(type => Measurement, measurement => measurement.station, {
         cascade: true, onDelete: 'SET NULL',
